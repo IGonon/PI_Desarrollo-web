@@ -35,7 +35,11 @@ app.use(session({
 
 //establecer las rutas
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {msg:'Este es el mensaje desde app.js'});
+});
+
+app.get('/login', (req, res) => {
+    res.render('login', {msg:'Este es el mensaje desde app.js'});
 });
 
 app.listen(3000, (req, res) => {
