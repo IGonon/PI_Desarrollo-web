@@ -42,6 +42,23 @@ app.get('/login', (req, res) => {
     res.render('login', {msg:'Este es el mensaje desde app.js'});
 });
 
+app.get('/register', (req, res) => {
+    res.render('register', {msg:'Este es el mensaje desde app.js'});
+});
+
 app.listen(3000, (req, res) => {
     console.log('Servidor corriendo en http://localhost:3000');
 });
+
+// Registro
+app.post('/register', async (req, res) => {
+    const registro_academico = req.body.registro_academico;
+    const password = req.body.password;
+    const nombre = req.body.nombre;
+    const apellido = req.body.apellido;
+    const email = req.body.email;
+    let passwordHaash = await bcryptjs.hash(password, 8);
+
+    //conectar con la base de datos (conectionquery)
+    
+})
